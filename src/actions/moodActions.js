@@ -15,5 +15,5 @@ export const takeNap = () => ({
 
 export const STUDY = 'STUDY';
 export const study = () => ({
-
+  type: STUDY
 });
