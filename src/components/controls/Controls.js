@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Controls.css';
 
-const Controls = ({ actions, handleSelection }) => (
+const Controls = ({ actions }) => (
   <section className={styles.Controls}>
-    {actions.map(({ name, text, count }) => (
-      <button key={name} onClick={() => handleSelection(name)}>
-        {text || name} {!!count && `- ${count}`}
-      </button>
-    ))}
+    {actions.map((obj, i) => {
+      return <button key={i} onClick={obj.actionCreator}>{obj.name} - {obj.count}</button>;
+    })}
   </section>
 );
 
