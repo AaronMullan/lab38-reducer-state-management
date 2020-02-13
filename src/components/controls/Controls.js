@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Controls.css';
-import { drinkCoffee, eatSnack, takeNap, study } from '../../actions/moodActions';
 
-const Controls = ({ dispatch }) => (
+const Controls = ({ actions }) => (
   <section className={styles.Controls}>
-    <button onClick={() => dispatch(drinkCoffee())}>Drink Coffee</button>
-    <button onClick={() => dispatch(eatSnack())}>Eat Snack</button>
-    <button onClick={() => dispatch(takeNap())}>Nap</button>
-    <button onClick={() => dispatch(study())}>Study</button>
+    {actions.map((obj, i) => {
+      return <button key={i} onClick={obj.actionCreator}>{obj.name} - {obj.count}</button>;
+    })}
   </section>
 );
 
