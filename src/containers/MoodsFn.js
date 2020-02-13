@@ -1,15 +1,21 @@
 import React, { useReducer } from 'react';
-import Controls from '../components/controls/Controls'
+import Controls from '../components/controls/Controls';
 import reducer from '../reducers/moodReducer';
+import Face from '../components/face/Face';
 
 const Moods = () => {
 
-  const[moods, dispatch] = useReducer(reducer, []);
-
+  const [moodstate, dispatch] = useReducer(reducer, { coffees: 0, snacks: 0, naps: 0, study: 0 });
+ 
+  // const controlActions = 
+  // const controlActions = actions.map(action => ({
+  //   ...action,
+  //   count: state[action.stateName]
+  // }));
   return (
     <>
-    <Controls />
-    <h1>Hello From Moods.js</h1>
+      <Controls dispatch={dispatch}/>
+      <Face emoji= '😴' />
     </>
   );
 };
